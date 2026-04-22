@@ -10,8 +10,7 @@
 namespace circularBufferSpace {
     class ValueNotFoundException : public std::runtime_error {
     public:
-        ValueNotFoundException()
-            : std::runtime_error("Value not found") {}
+        ValueNotFoundException();
     };
 
     class CircularBuffer {
@@ -45,10 +44,10 @@ namespace circularBufferSpace {
 
         bool operator==(const CircularBuffer& other) const;         //returns true if the buffers are equal
         bool operator!=(const CircularBuffer& other) const;         //returns true if the buffers are not equal
-        bool operator<(const CircularBuffer& other)  const;         //returns true if the first buffer has a lower total sum of elements than the other
-        bool operator<=(const CircularBuffer& other) const;         //returns true if the first buffer has a lower total sum of elements than the other or is equal to it
-        bool operator>(const CircularBuffer& other)  const;         //returns true if the first buffer has a bigger total sum of elements than the other
-        bool operator>=(const CircularBuffer& other) const;         //returns true if the first buffer has a bigger total sum of elements than the other or is equal to it
+        bool operator<(const CircularBuffer& other)  const;         //lexicographic comparison
+        bool operator<=(const CircularBuffer& other) const;         //lexicographic comparison
+        bool operator>(const CircularBuffer& other)  const;         //lexicographic comparison
+        bool operator>=(const CircularBuffer& other) const;         //lexicographic comparison
     };
 }
 

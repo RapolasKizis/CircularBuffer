@@ -1,0 +1,53 @@
+# depslib dependency file v1.0
+1774984900 source:c:\users\kizis\desktop\studies\first year\oop (c++)\circularlist\circularbuffer.cpp
+	"util/all.h"
+	"circularBuffer.h"
+
+1774876485 c:\users\kizis\desktop\studies\first year\oop (c++)\circularlist\util\all.h
+	<iostream>
+	<fstream>
+	<sstream>
+	<iomanip>
+	<exception>
+	<stdexcept>
+	<cstdlib>
+	<cstdio>
+	<ctime>
+	<cmath>
+	<cctype>
+	<cassert>
+	<vector>
+	<set>
+	<map>
+	<functional>
+	<algorithm>
+	"util.h"
+
+1774985780 c:\users\kizis\desktop\studies\first year\oop (c++)\circularlist\circularbuffer.h
+	"util/all.h"
+
+1774985950 source:c:\users\kizis\desktop\studies\first year\oop (c++)\circularlist\demo.cpp
+	"util/all.h"
+	"circularBuffer.h"
+
+1774876376 c:\users\kizis\desktop\studies\first year\oop (c++)\circularlist\switchmode.h
+
+1774986407 source:c:\users\kizis\desktop\studies\first year\oop (c++)\circularlist\test.cpp
+	"util/all.h"
+	"circularBuffer.h"
+
+1774895666 c:\users\kizis\desktop\studies\first year\oop (c++)\circularlist\util\util.h
+	"all.h"
+
+1774885749 source:c:\users\kizis\desktop\studies\first year\oop (c++)\circularlist\util\random.cpp
+	"all.h"
+	"util.h"
+
+1774895625 source:c:\users\kizis\desktop\studies\first year\oop (c++)\circularlist\util\streams.cpp
+	"all.h"
+	"util.h"
+
+1774986127 source:c:\users\kizis\desktop\studies\first year\oop (c++)\circularlist\util\validator.cpp
+	"all.h"
+	"util.h"
+

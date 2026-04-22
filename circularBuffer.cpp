@@ -2,8 +2,12 @@
 #include "circularBuffer.h"
 
 namespace circularBufferSpace {
+    ValueNotFoundException::ValueNotFoundException()
+            : std::runtime_error("Value not found") {}
+
     class CircularBuffer::Inner {
-    public:
+        friend class CircularBuffer;
+    private:
         struct Node {
             int value;
             Node* next;
@@ -20,6 +24,7 @@ namespace circularBufferSpace {
         int nodeCount;
         int capacity;
 
+    public:
         Inner(int capacity) {
             Validator::validateRange(capacity, 1, INT_MAX);
             this->capacity = capacity;
@@ -254,37 +259,32 @@ namespace circularBufferSpace {
     bool CircularBuffer::operator<(const CircularBuffer& other)  const {
         Inner::Node* temp1 = impl->oldest;
         Inner::Node* temp2 = other.impl->oldest;
-        int sum1 = 0, sum2 = 0;
-        for(int i = 0; i < impl->nodeCount; ++i) {
-            sum1 += temp1->value;
+        int n;
+
+        if(impl->nodeCount <= other.impl->nodeCount)
+            n = impl->nodeCount;
+        else
+            n = other.impl->nodeCount;
+
+        for(int i = 0; i < n; ++i) {
+            if(temp1->value < temp2->value)
+                return true;
+            if(temp1->value > temp2->value)
+                return false;
             temp1 = temp1->next;
-        }
-        for(int i = 0; i < other.impl->nodeCount; ++i) {
-            sum2 += temp2->value;
             temp2 = temp2->next;
         }
-        if(sum1 < sum2)
+
+        if(impl->nodeCount < other.impl->nodeCount)
             return true;
-        return false;
+        else
+            return false;
     }
     bool CircularBuffer::operator<=(const CircularBuffer& other) const {
         return (operator<(other) || operator==(other));
     }
     bool CircularBuffer::operator>(const CircularBuffer& other)  const {
-        Inner::Node* temp1 = impl->oldest;
-        Inner::Node* temp2 = other.impl->oldest;
-        int sum1 = 0, sum2 = 0;
-        for(int i = 0; i < impl->nodeCount; ++i) {
-            sum1 += temp1->value;
-            temp1 = temp1->next;
-        }
-        for(int i = 0; i < other.impl->nodeCount; ++i) {
-            sum2 += temp2->value;
-            temp2 = temp2->next;
-        }
-        if(sum1 > sum2)
-            return true;
-        return false;
+        return (!operator<(other) && operator!=(other));
     }
     bool CircularBuffer::operator>=(const CircularBuffer& other) const {
         return (operator>(other) || operator==(other));

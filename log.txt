@@ -1,0 +1,63 @@
+========== CircularBuffer Tests ==========
+--- Constructors ---
+[PASS] Default constructor: capacity is 8
+[PASS] Default constructor: toString is empty
+[PASS] Capacity constructor: capacity is 5
+[PASS] Capacity constructor: rejects 0
+--- addValue / operator+= ---
+[PASS] addValue: toString after 3 adds
+[PASS] operator+=: toString after 4th add
+[PASS] addValue: overwrites oldest when full
+--- Copy constructor ---
+[PASS] Copy constructor: same toString
+[PASS] Copy constructor: same capacity
+[PASS] Copy is deep: original unchanged
+--- operator= ---
+[PASS] operator=: same toString
+[PASS] operator=: deep copy (original unchanged)
+[PASS] operator=: self-assignment safe
+--- removeValue / operator-= ---
+[PASS] removeValue: remove middle
+[PASS] removeValue: remove oldest
+[PASS] removeValue: remove newest
+[PASS] operator-=: remove until empty
+[PASS] removeValue: throws on empty buffer
+[PASS] removeValue: throws when value missing
+--- editValue / operator*= ---
+[PASS] editValue: edit position 0
+[PASS] editValue: edit last position
+[PASS] editValue: position wraps (4%4=0)
+[PASS] operator*=: edit via pair
+--- positionOf / operator[] ---
+[PASS] positionOf: finds first element
+[PASS] positionOf: finds middle element
+[PASS] positionOf: finds last element
+[PASS] operator[]: same as positionOf
+[PASS] positionOf: throws when missing
+[PASS] operator[]: throws when missing
+--- getCapacity / setCapacity ---
+[PASS] getCapacity: returns correct value
+[PASS] setCapacity: updates capacity
+[PASS] setCapacity: rejects capacity < nodeCount
+--- clearBuffer / operator! ---
+[PASS] clearBuffer: empties buffer
+[PASS] operator!: empties buffer
+[PASS] clearBuffer: safe on empty buffer
+--- Comparison operators ---
+[PASS] operator==: equal buffers
+[PASS] operator==: unequal buffers
+[PASS] operator!=: unequal buffers
+[PASS] operator!=: equal buffers
+[PASS] operator<:  less than
+[PASS] operator<:  not less than equal
+[PASS] operator<=: less or equal (less)
+[PASS] operator<=: less or equal (equal)
+[PASS] operator<=: not less or equal
+[PASS] operator>:  greater than
+[PASS] operator>:  not greater than equal
+[PASS] operator>=: greater or equal (greater)
+[PASS] operator>=: greater or equal (equal)
+[PASS] operator>=: not greater or equal
+==========================================
+Results: 49 passed, 0 failed.
+==========================================

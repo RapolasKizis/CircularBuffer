@@ -1,7 +1,7 @@
 #include "util/all.h"
 #include "circularBuffer.h"
 
-//#define DEMO_MODE
+#define DEMO_MODE
 
 using namespace std;
 
