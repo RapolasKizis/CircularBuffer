@@ -281,7 +281,7 @@ namespace circularBufferSpace {
             return false;
     }
     bool CircularBuffer::operator<=(const CircularBuffer& other) const {
-        return (operator<(other) || operator==(other));
+        return (operator<(other) && operator==(other));
     }
     bool CircularBuffer::operator>(const CircularBuffer& other)  const {
         return (!operator<(other) && operator!=(other));
